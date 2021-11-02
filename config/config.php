@@ -3,18 +3,9 @@
 use Bavix\Wallet\Models\Transaction;
 use Bavix\Wallet\Models\Transfer;
 use Bavix\Wallet\Models\Wallet;
-use Bavix\Wallet\Objects\Bring;
 use Bavix\Wallet\Objects\Cart;
-use Bavix\Wallet\Objects\EmptyLock;
-use Bavix\Wallet\Objects\Operation;
 use Bavix\Wallet\Services\CommonService;
-use Bavix\Wallet\Services\ExchangeService;
-use Bavix\Wallet\Services\LockService;
-use Bavix\Wallet\Services\MathService;
 use Bavix\Wallet\Services\WalletService;
-use Bavix\Wallet\Simple\Exchange;
-use Bavix\Wallet\Simple\Rate;
-use Bavix\Wallet\Simple\Store;
 
 return [
     /**
@@ -23,17 +14,6 @@ return [
      */
     'math' => [
         'scale' => 64,
-    ],
-
-    /**
-     * The parameter is used for fast packet overload.
-     * You do not need to search for the desired class by code, the library will do it itself.
-     */
-    'package' => [
-        'exchange' => Exchange::class,
-        'rateable' => Rate::class,
-        'storable' => Store::class,
-        'mathable' => MathService::class,
     ],
 
     /**
@@ -71,17 +51,12 @@ return [
      * This configuration will help you to quickly customize the library.
      */
     'services' => [
-        'exchange' => ExchangeService::class,
         'common' => CommonService::class,
         'wallet' => WalletService::class,
-        'lock' => LockService::class,
     ],
 
     'objects' => [
-        'bring' => Bring::class,
         'cart' => Cart::class,
-        'emptyLock' => EmptyLock::class,
-        'operation' => Operation::class,
     ],
 
     /**
